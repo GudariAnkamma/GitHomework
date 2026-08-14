@@ -10,6 +10,7 @@ namespace GitHomework
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Feature branch 1 - development 1");
             Console.WriteLine("Hello world!");
             Console.WriteLine("Feature branch 1 - development 2");
         }
