@@ -19,13 +19,17 @@ namespace GitHomework
             string userInput = Console.ReadLine();
             int nominal = Int32.Parse(userInput);
 
-            Console.WriteLine("Input the price of the trade:");
+            Console.WriteLine("Input the trade price:");
             userInput = Console.ReadLine();
-            decimal price = Decimal.Parse(userInput);
+            double tradePrice = Double.Parse(userInput);
+            Console.WriteLine("Input transaction type (Buy/Sell):");
+            userInput = Console.ReadLine();
 
-            Console.WriteLine("Input the transaction type (Buy/Sell):");
-            userInput = Console.ReadLine();
-            TransactionType trcType = (TransactionType)Enum.Parse(typeof(TransactionType), userInput, true);
+            TransactionType transactionType = (TransactionType)Enum.Parse(typeof(TransactionType),userInput,true);
+            int factor = transactionType == TransactionType.Buy ? 1 : -1;
+
+            double currentValue = nominal * tradePrice * factor;
+            Console.WriteLine($"\nCurrent Value: {currentValue}");
         }
     }
 }
