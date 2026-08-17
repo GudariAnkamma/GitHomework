@@ -26,10 +26,18 @@ namespace GitHomework
             userInput = Console.ReadLine();
 
             TransactionType transactionType = (TransactionType)Enum.Parse(typeof(TransactionType),userInput,true);
+            Console.WriteLine("Input the original/booked price:");
+            userInput = Console.ReadLine();
+            double originalPrice = Double.Parse(userInput);
             int factor = transactionType == TransactionType.Buy ? 1 : -1;
 
             double currentValue = nominal * tradePrice * factor;
+            int plFactor = transactionType == TransactionType.Sell ? 1 : 0;
+
+            double profitLoss =
+            (tradePrice - originalPrice) * nominal * plFactor;
             Console.WriteLine($"\nCurrent Value: {currentValue}");
+            Console.WriteLine($"Profit/Loss: {profitLoss}");
         }
     }
 }
